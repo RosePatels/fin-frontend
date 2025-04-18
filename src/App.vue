@@ -1,11 +1,11 @@
 <template>
 <div>
-  testing
+  <Login />
 </div>
 </template>
 
 <script setup>
-
+import Login from './views/Login.vue';
 </script>
 
 <style scoped>
