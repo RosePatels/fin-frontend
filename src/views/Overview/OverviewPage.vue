@@ -180,17 +180,11 @@
 </div>
 
 
-<div>
-    <a>Home</a>
-    <a>Transactions</a>
-    <a>Budgets</a>
-    <a>Pots</a>
-    <a>Recurring Bills</a>
-</div>
+<MobileFooter />
 </template>
 
 <script setup lang="ts">
-
+import MobileFooter from '../Navigation/MobileFooter.vue';
 
 </script>
 
