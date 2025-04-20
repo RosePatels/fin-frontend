@@ -1,1 +1,38 @@
 @import "tailwindcss";
+
+@theme {
+    --color-figma-beige-500: #98908B;
+    --color-figma-beige-100: #F8F4F0;
+    --color-figma-grey-900: #201F24;
+    --color-figma-grey-500: #696868;
+    --color-figma-grey-300: #B3B3B3;
+    --color-figma-grey-100: #F2F2F2;
+
+    --color-figma-green: #277C78;
+    --color-figma-yellow: #F2CDAC;
+    --color-figma-cyan: #82C9D7;
+    --color-figma-navy: #626070;
+    --color-figma-red: #C94736;
+    --color-figma-dark-purple: #826CB0;
+
+    --color-figma-light-purple: #AF81BA;
+    --color-figma-turquoise: #597C7C;
+    --color-figma-brown: #93674F;
+    --color-figma-magenta: #934F6F;
+    --color-figma-blue: #3F82B2;
+    --color-figma-navy-grey: #97A0AC;
+    --color-figma-army-green: #7F9161;
+    --color-figma-gold: #CAB361;
+    --color-figma-orange: #BE6C49;
+    
+    --figma-spacing-500: 40px;
+    --figma-spacing-400: 32px;
+    --figma-spacing-300: 24px;
+    --figma-spacing-250: 20px;
+    --figma-spacing-200: 16px;
+    --figma-spacing-150: 12px;
+    --figma-spacing-100: 8px;
+    --figma-spacing-50: 4px;
+  }
+
+  
