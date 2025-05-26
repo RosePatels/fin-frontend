@@ -1,24 +1,28 @@
 <template>
-<div class="router-view-container">
+<div class="router-view-container h-[calc(100vh-51px)] sm:h-[calc(100vh-82px)]">
     <RouterView />
 </div>
 <div class="bg-figma-beige-100">
-    <MobileFooter />
+    <TabletFooter class="hidden sm:block"/>
+    <MobileFooter class="sm:hidden" />
 </div>
 </template>
 
 <script setup lang="ts">
-import OverviewPage from './views/Overview/OverviewPage.vue';
-import TransactionsPage from './views/Transactions/TransactionsPage.vue';
-import BudgetsPage from './views/Budgets/BudgetsPage.vue';
-import PotsPage from './views/Pots/PotsPage.vue';
-import RecurringBillsPage from './views/Recurring Bills/RecurringBillsPage.vue'; 
 import MobileFooter from './views/Navigation/MobileFooter.vue';
+import TabletFooter from './views/Navigation/TabletFooter.vue';
 </script>
 
 <style scoped>
 .router-view-container {
     overflow: scroll;
+}
+
+.router-view-sm-height {
     height: calc(100vh - 50px);
+}
+
+.router-view-md-height {
+    height: calc(100v - 74px);
 }
 </style>

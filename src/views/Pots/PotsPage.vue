@@ -135,7 +135,6 @@
 
 
 <script setup lang="ts">
-import MobileFooter from '../Navigation/MobileFooter.vue';
 </script>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <template>
-<div class="bg-figma-beige-100 ">
+<div class="bg-figma-beige-100">
     <h2>Overview</h2>
     <div>
         <div>
@@ -183,7 +183,6 @@
 </template>
 
 <script setup lang="ts">
-import MobileFooter from '../Navigation/MobileFooter.vue';
 
 </script>
 
