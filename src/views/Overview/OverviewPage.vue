@@ -1,18 +1,18 @@
 <template>
-<div class="bg-figma-beige-100">
-    <h2>Overview</h2>
-    <div>
-        <div>
-            <div>Current Balance</div>
-            <div>$4,836.00</div>
+<div class="bg-figma-beige-100 px-(--figma-spacing-200) py-(--figma-spacing-300) sm:px-(--figma-spacing-400) sm:py-(--figma-spacing-500)">
+    <PageTitle title="Overview" />
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-(--figma-spacing-150) sm:gap-(--figma-spacing-300) py-(--figma-spacing-400)">
+        <div class="p-(--figma-spacing-300) bg-figma-grey-900 text-white rounded-xl"> 
+            <div class="text-preset-4">Current Balance</div>
+            <div class="pt-(--figma-spacing-150) text-preset-1">$4,836.00</div>
         </div>
-        <div>
-            <div>Income</div>
-            <div>$3,814.25</div>
+        <div class="p-(--figma-spacing-300) bg-white rounded-xl">
+            <div class="text-preset-4 text-figma-grey-500">Income</div>
+            <div class="pt-(--figma-spacing-150) text-preset-1 text-figma-grey-900">$3,814.25</div>
         </div>
-        <div>
-            <div>Expenses</div>
-            <div>$1,700.50</div>
+        <div class="p-(--figma-spacing-300) bg-white rounded-xl">
+            <div class="text-preset-4 text-figma-grey-500">Expenses</div>
+            <div class="pt-(--figma-spacing-150) text-preset-1 text-figma-grey-900">$1,700.50</div>
         </div>
     </div>
 
@@ -21,7 +21,7 @@
             <div>Pots</div>
             <div>See Details</div>
         </div>
-        <div>
+        <div>  
             <div>Icon</div>
             <div>
                 <div>Total Saved</div>
@@ -183,7 +183,7 @@
 </template>
 
 <script setup lang="ts">
-
+import PageTitle from '@/components/PageTitle.vue';
 </script>
 
 

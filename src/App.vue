@@ -1,5 +1,5 @@
 <template>
-<div class="router-view-container h-[calc(100vh-51px)] sm:h-[calc(100vh-82px)]">
+<div class="router-view-container h-[calc(100vh-51px)] sm:h-[calc(100vh-78px)]">
     <RouterView />
 </div>
 <div class="bg-figma-beige-100">

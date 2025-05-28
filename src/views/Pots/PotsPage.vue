@@ -1,7 +1,7 @@
 <template>
-<div class="bg-figma-beige-100">
+<div class="bg-figma-beige-100 px-(--figma-spacing-200) py-(--figma-spacing-300) sm:px-(--figma-spacing-400) sm:py-(--figma-spacing-500)">
     <header>
-        <h2>Budgets</h2>
+        <PageTitle title="Pots" />
         <button>Add new budget</button>
     </header>
 
@@ -135,6 +135,8 @@
 
 
 <script setup lang="ts">
+import PageTitle from '@/components/PageTitle.vue';
+
 </script>
 
 <style scoped>
