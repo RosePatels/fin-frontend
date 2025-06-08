@@ -35,81 +35,87 @@
             <div class="grid grid-cols-[max-content_1fr] items-center">
                  <span class="line inline-block bg-figma-green"></span>
                 <div>
-                    <div class="text-preset-5 text-figma-grey-900">Savings</div>
+                    <div class="text-preset-5 text-figma-grey-500">Savings</div>
                     <div class="text-preset-4-bold text-figma-grey-900">$159</div>
                 </div>
             </div>
             <div class="grid grid-cols-[max-content_1fr] items-center">
                  <span class="line inline-block bg-figma-cyan"></span>
                 <div>
-                    <div class="text-preset-5 text-figma-grey-900">Gift</div>
+                    <div class="text-preset-5 text-figma-grey-500">Gift</div>
                     <div class="text-preset-4-bold text-figma-grey-900">$40</div>
                 </div>
             </div>
             <div class="grid grid-cols-[max-content_1fr] items-center">
                  <span class="line inline-block bg-figma-navy"></span>
                 <div>
-                    <div class="text-preset-5 text-figma-grey-900">Concert Ticket</div>
+                    <div class="text-preset-5 text-figma-grey-500">Concert Ticket</div>
                     <div class="text-preset-4-bold text-figma-grey-900">$110</div>
                 </div>
             </div>
             <div class="grid grid-cols-[max-content_1fr] items-center">
                  <span class="line inline-block bg-figma-yellow"></span>
                 <div>
-                    <div class="text-preset-5 text-figma-grey-900">New Laptop</div>
+                    <div class="text-preset-5 text-figma-grey-500">New Laptop</div>
                     <div class="text-preset-4-bold text-figma-grey-900">$10</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div>
-        <div>
-            <div>Budgets</div>
-            <div>See Details</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
+        <div class="md:col-span-2 max-h-max flex justify-between items-center">
+            <div class="text-preset-2 text-figma-grey-900">Budgets</div>
+            <div class="text-preset-4 text-figma-grey-500 flex items-center">
+                See Details
+                <svg class="ml-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="6" height="11" fill="none"><path fill="#696868" d="m.854.146 5 5a.5.5 0 0 1 0 .708l-5 5A.5.5 0 0 1 0 10.5V.5A.5.5 0 0 1 .854.146z"/></svg>
+            </div>
         </div>
 
         <div>Budget Graph Here</div>
 
         <div>
-            <div>
-                <div>Line</div>
+            <div class="grid grid-cols-[max-content_1fr] items-center">
+                 <span class="line inline-block bg-figma-green"></span>
                 <div>
-                    <div>Entertainment</div>
-                    <div>$50.00</div>
+                    <div class="text-preset-5 text-figma-grey-500">Entertainment</div>
+                    <div class="text-preset-4-bold text-figma-grey-900">$50.00</div>
                 </div>
             </div>
 
-            <div>
-                <div>Line</div>
+            <div class="grid grid-cols-[max-content_1fr] items-center">
+                 <span class="line inline-block bg-figma-cyan"></span>
                 <div>
-                    <div>Bills</div>
-                    <div>$750.00</div>
+                    <div class="text-preset-5 text-figma-grey-500">Bills</div>
+                    <div class="text-preset-4-bold text-figma-grey-900">$750.00</div>
                 </div>
             </div>
 
-            <div>
-                <div>Line</div>
+            <div class="grid grid-cols-[max-content_1fr] items-center">
+                 <span class="line inline-block bg-figma-yellow"></span>
                 <div>
-                    <div>Dining Out</div>
-                    <div>$75.00</div>
+                    <div class="text-preset-5 text-figma-grey-500">Dining Out</div>
+                    <div class="text-preset-4-bold text-figma-grey-900">$75.00</div>
                 </div>
             </div>
 
-            <div>
-                <div>Line</div>
+            <div class="grid grid-cols-[max-content_1fr] items-center">
+                 <span class="line inline-block bg-figma-navy"></span>
                 <div>
-                    <div>Personal Care</div>
-                    <div>$100.00</div>
+                    <div class="text-preset-5 text-figma-grey-500">Personal Care</div>
+                    <div class="text-preset-4-bold text-figma-grey-900">$100.00</div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div>
-        <div>
-            <div>Transactions</div>
-            <div>View All</div>
+    <div class="grid grid-cols-1 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
+        <div class="max-h-max flex justify-between items-center">
+            <div class="text-preset-2 text-figma-grey-900">Transactions</div>
+            <div class="text-preset-4 text-figma-grey-500 flex items-center">
+                See Details
+                <svg class="ml-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="6" height="11" fill="none"><path fill="#696868" d="m.854.146 5 5a.5.5 0 0 1 0 .708l-5 5A.5.5 0 0 1 0 10.5V.5A.5.5 0 0 1 .854.146z"/></svg>
+            </div>
         </div>
         <div>
             <div>Portrait</div>
@@ -160,25 +166,28 @@
         </div>
     </div>
 
-    <div>
-        <div>
-            <div>Recurring Bills</div>
-            <div>See Details</div>
+    <div class="grid grid-cols-1 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
+        <div class="max-h-max flex justify-between items-center pb-(--figma-spacing-150)">
+            <div class="text-preset-2 text-figma-grey-900">Recurring Bills</div>
+            <div class="text-preset-4 text-figma-grey-500 flex items-center">
+                See Details
+                <svg class="ml-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="6" height="11" fill="none"><path fill="#696868" d="m.854.146 5 5a.5.5 0 0 1 0 .708l-5 5A.5.5 0 0 1 0 10.5V.5A.5.5 0 0 1 .854.146z"/></svg>
+            </div>
         </div>
 
-        <div>
-            <div>Paid Bills</div>
-            <div>$190.00</div>
+        <div class="flex justify-between items-center p-(--figma-spacing-200) bg-figma-beige-100 rounded-lg border-l-figma-green border-l-4">
+            <div class="text-preset-4 text-figma-grey-500">Paid Bills</div>
+            <div class="text-preset-4-bold text-figma-grey-900">$190.00</div>
         </div>
 
-        <div>
-            <div>Total Upcoming</div>
-            <div>$194.98</div>
+        <div class="flex justify-between items-center p-(--figma-spacing-200) bg-figma-beige-100 rounded-lg border-l-figma-yellow border-l-4">
+            <div class="text-preset-4 text-figma-grey-500">Total Upcoming</div>
+            <div class="text-preset-4-bold text-figma-grey-900">$194.98</div>
         </div>
 
-        <div>
-            <div>Due Soon</div>
-            <div>$59.98</div>
+        <div class="flex justify-between items-center p-(--figma-spacing-200) bg-figma-beige-100 rounded-lg border-l-figma-cyan border-l-4">
+            <div class="text-preset-4 text-figma-grey-500">Paid Bills</div>
+            <div class="text-preset-4-bold text-figma-grey-900">$59.98</div>
         </div>
     </div>
 </div>
