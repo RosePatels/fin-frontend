@@ -15,8 +15,8 @@
             <div class="pt-(--figma-spacing-150) text-preset-1 text-figma-grey-900">$1,700.50</div>
         </div>
     </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-(--figma-spacing-300)">
-    <div class="grid grid-cols-1 md:grid-cols-2 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
+<div class="grid grid-cols-1 md:grid-cols-2 md:grid-rows-4 gap-(--figma-spacing-300)">
+    <div class="grid grid-cols-1 md:grid-cols-2 md:row-span-1 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
         <div class="md:col-span-2 max-h-max flex justify-between items-center">
             <div class="text-preset-2 text-figma-grey-900">Pots</div>
             <div class="text-preset-4 text-figma-grey-500 flex items-center">
@@ -63,7 +63,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
+    <div class="grid grid-cols-1 md:grid-cols-2 md:row-span-2 gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
         <div class="md:col-span-2 max-h-max flex justify-between items-center">
             <div class="text-preset-2 text-figma-grey-900">Budgets</div>
             <div class="text-preset-4 text-figma-grey-500 flex items-center">
@@ -72,9 +72,13 @@
             </div>
         </div>
 
-        <div>Budget Graph Here</div>
+        <div class="w-full">
+            <Chart type="doughnut" :data="chartData" :options="chartOptions" class="w-full" />
+            <!-- <div class="text-center mt-(--figma-spacing-300) text-preset-4 text-figma-grey-500"><span class="text-preset-3 text-figma-grey-900">$338</span> of 975 limit</div> -->
+        </div>
 
-        <div>
+
+        <div class="grid grid-cols-1 gap-(--figma-spacing-200)">
             <div class="grid grid-cols-[max-content_1fr] items-center">
                  <span class="line inline-block bg-figma-green"></span>
                 <div>
@@ -109,7 +113,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
+    <div class="grid grid-cols-1 md:row-span-7 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
         <div class="max-h-max flex justify-between items-center">
             <div class="text-preset-2 text-figma-grey-900">Transactions</div>
             <div class="text-preset-4 text-figma-grey-500 flex items-center">
@@ -117,56 +121,25 @@
                 <svg class="ml-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="6" height="11" fill="none"><path fill="#696868" d="m.854.146 5 5a.5.5 0 0 1 0 .708l-5 5A.5.5 0 0 1 0 10.5V.5A.5.5 0 0 1 .854.146z"/></svg>
             </div>
         </div>
-        <div>
-            <div>Portrait</div>
-            <div>Emma Richardson</div>
-
-            <div>
-                <div>+$75.50</div>
-                <div>19 Aug 2024</div>
-            </div>
-        </div>
-        <div>
-            <div>Portrait</div>
-            <div>Savory Bites Bistro</div>
-
-            <div>
-                <div>-$55.50</div>
-                <div>19 Aug 2024</div>
-            </div>
-        </div>
-        <div>
-            <div>Portrait</div>
-            <div>Daniel Carter</div>
-
-            <div>
-                <div>-$42.30</div>
-                <div>18 Aug 2024</div>
-            </div>
-        </div>
-
-        <div>
-            <div>Portrait</div>
-            <div>Sun Park</div>
-
-            <div>
-                <div>+$120.00</div>
-                <div>17 Aug 2024</div>
-            </div>
-        </div>
-
-        <div>
-            <div>Portrait</div>
-            <div>Urban Services Hub</div>
-
-            <div>
-                <div>-$65.00</div>
-                <div>17 Aug 2024</div>
-            </div>
-        </div>
+        <DataTable :value="transactions" class="h-max">
+            <Column field="name">
+                <template #body="slotProps">
+                    <div class="text-preset-4-bold text-figma-grey-900">
+                        {{ slotProps.data.name }}
+                    </div>
+                </template>
+            </Column>
+            <Column field="amount">
+                <template #body="slotProps">
+                    <div class="flex flex-col text-right">
+                        <div class="text-preset-4-bold pb-(--figma-spacing-100)" :class="{ 'text-figma-green': slotProps.data.amount > 0, 'text-figma-red': slotProps.data.amount < 0  }">{{ getFormattedAmount(slotProps.data.amount) }}</div>
+                        <div class="text-preset-5 text-figma-grey-500">{{ slotProps.data.date }}</div>
+                    </div>
+                </template>
+            </Column>
+        </DataTable>
     </div>
-
-    <div class="grid grid-cols-1 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
+    <div class="grid grid-cols-1 md:row-span-2 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
         <div class="max-h-max flex justify-between items-center pb-(--figma-spacing-150)">
             <div class="text-preset-2 text-figma-grey-900">Recurring Bills</div>
             <div class="text-preset-4 text-figma-grey-500 flex items-center">
@@ -194,8 +167,65 @@
 </div>
 </template>
 
-<script setup lang="ts">
+<script setup>
+import { ref, onMounted } from 'vue';
 import PageTitle from '@/components/PageTitle.vue';
+import { DataTable, Column } from 'primevue';
+import Chart from 'primevue/chart';
+
+
+const transactions = ref([
+    { id: 1, name: 'Emma Richardson', amount: 75, date: '19 Aug 2024' },
+    { id: 2, name: 'Savory Bites Bistro', amount: -55, date: '19 Aug 2024' },
+    { id: 3, name: 'Daniel Carter', amount: 42.30, date: '18 Aug 2024' },
+    { id: 4, name: 'Sun Park', amount: 120, date: '17 Aug 2024' },
+    { id: 5, name: 'Urban Services Hub', amount: -65, date: '17 Aug 2024' }
+]);
+
+const getFormattedAmount = (amount) => {
+    return amount > 0 ? `+$${amount.toFixed(2)}` : `-$${Math.abs(amount).toFixed(2)}`;
+};
+
+onMounted(() => {
+    chartData.value = setChartData();
+    chartOptions.value = setChartOptions();
+});
+
+const chartData = ref();
+const chartOptions = ref(null);
+
+const setChartData = () => {
+    const documentStyle = getComputedStyle(document.body);
+
+    return {
+        labels: ['Entertainment', 'Bills', 'Dining Out', 'Personal Care'],
+        datasets: [
+            {
+                data: [50, 750, 75, 100],
+                backgroundColor: [documentStyle.getPropertyValue('--color-figma-green'), documentStyle.getPropertyValue('--color-figma-cyan'), documentStyle.getPropertyValue('--color-figma-yellow'), documentStyle.getPropertyValue('--color-figma-navy')],
+            }
+        ]
+    };
+};
+
+const handleResize = (chart) => {
+chart.resize();
+}
+
+const setChartOptions = () => {
+    const documentStyle = getComputedStyle(document.documentElement);
+    const textColor = documentStyle.getPropertyValue('--p-text-color');
+
+    return {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false
+            }
+        }
+    };
+};
+
 </script>
 
 
