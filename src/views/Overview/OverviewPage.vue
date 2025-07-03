@@ -19,10 +19,10 @@
     <div class="grid grid-cols-1 md:grid-cols-2 md:row-span-1 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
         <div class="md:col-span-2 max-h-max flex justify-between items-center">
             <div class="text-preset-2 text-figma-grey-900">Pots</div>
-            <div class="text-preset-4 text-figma-grey-500 flex items-center">
+            <router-link :to="{ name: 'pots' }" class="text-preset-4 text-figma-grey-500 flex items-center hover:text-figma-grey-900 cursor-pointer see-details">
                 See Details
                 <svg class="ml-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="6" height="11" fill="none"><path fill="#696868" d="m.854.146 5 5a.5.5 0 0 1 0 .708l-5 5A.5.5 0 0 1 0 10.5V.5A.5.5 0 0 1 .854.146z"/></svg>
-            </div>
+            </router-link>
         </div>
         <div class="flex items-center col-span-1 bg-figma-beige-100 rounded-xl p-(--figma-spacing-200)">  
             <svg class="mr-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="28" height="36" fill="none"><path fill="#277C78" d="M22.438 5.888V3A2.188 2.188 0 0 0 20.25.812H7.75A2.188 2.188 0 0 0 5.562 3v2.888a5.945 5.945 0 0 0-5 5.862v17.5A5.937 5.937 0 0 0 6.5 35.188h15a5.937 5.937 0 0 0 5.938-5.938v-17.5a5.945 5.945 0 0 0-5-5.862ZM20.563 3v2.813h-3.125V2.688h2.812a.313.313 0 0 1 .313.312Zm-8.125 2.813V2.688h3.124v3.124h-3.124ZM7.75 2.688h2.813v3.124H7.437V3a.312.312 0 0 1 .313-.313ZM25.563 29.25a4.064 4.064 0 0 1-4.063 4.063h-15a4.064 4.064 0 0 1-4.063-4.063v-17.5A4.063 4.063 0 0 1 6.5 7.687h15a4.062 4.062 0 0 1 4.063 4.063v17.5ZM18.688 23a3.438 3.438 0 0 1-3.438 3.438h-.313V28a.938.938 0 0 1-1.874 0v-1.563H11.5a.938.938 0 0 1 0-1.875h3.75a1.563 1.563 0 0 0 0-3.125h-2.5a3.438 3.438 0 0 1 0-6.875h.313V13a.938.938 0 0 1 1.874 0v1.563H16.5a.938.938 0 0 1 0 1.874h-3.75a1.563 1.563 0 0 0 0 3.125h2.5A3.438 3.438 0 0 1 18.688 23Z"/></svg>
@@ -66,10 +66,10 @@
     <div class="grid grid-cols-1 md:grid-cols-2 md:row-span-2 gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
         <div class="md:col-span-2 max-h-max flex justify-between items-center">
             <div class="text-preset-2 text-figma-grey-900">Budgets</div>
-            <div class="text-preset-4 text-figma-grey-500 flex items-center">
+            <router-link :to="{ name: 'budgets' }" class="text-preset-4 text-figma-grey-500 flex items-center hover:text-figma-grey-900 cursor-pointer see-details">
                 See Details
                 <svg class="ml-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="6" height="11" fill="none"><path fill="#696868" d="m.854.146 5 5a.5.5 0 0 1 0 .708l-5 5A.5.5 0 0 1 0 10.5V.5A.5.5 0 0 1 .854.146z"/></svg>
-            </div>
+            </router-link>
         </div>
 
         <div class="w-full">
@@ -116,10 +116,10 @@
     <div class="grid grid-cols-1 md:row-span-7 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
         <div class="max-h-max flex justify-between items-center">
             <div class="text-preset-2 text-figma-grey-900">Transactions</div>
-            <div class="text-preset-4 text-figma-grey-500 flex items-center">
-                See Details
+             <router-link :to="{ name: 'transactions' }" class="text-preset-4 text-figma-grey-500 flex items-center hover:text-figma-grey-900 cursor-pointer view-all">
+                View All
                 <svg class="ml-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="6" height="11" fill="none"><path fill="#696868" d="m.854.146 5 5a.5.5 0 0 1 0 .708l-5 5A.5.5 0 0 1 0 10.5V.5A.5.5 0 0 1 .854.146z"/></svg>
-            </div>
+             </router-link>
         </div>
         <DataTable :value="transactions" class="h-max">
             <Column field="name">
@@ -142,10 +142,10 @@
     <div class="grid grid-cols-1 md:row-span-2 h-max gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
         <div class="max-h-max flex justify-between items-center pb-(--figma-spacing-150)">
             <div class="text-preset-2 text-figma-grey-900">Recurring Bills</div>
-            <div class="text-preset-4 text-figma-grey-500 flex items-center">
+             <router-link :to="{ name: 'recurring-bills' }" class="text-preset-4 text-figma-grey-500 flex items-center hover:text-figma-grey-900 cursor-pointer see-details">
                 See Details
                 <svg class="ml-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="6" height="11" fill="none"><path fill="#696868" d="m.854.146 5 5a.5.5 0 0 1 0 .708l-5 5A.5.5 0 0 1 0 10.5V.5A.5.5 0 0 1 .854.146z"/></svg>
-            </div>
+             </router-link>
         </div>
 
         <div class="flex justify-between items-center p-(--figma-spacing-200) bg-figma-beige-100 rounded-lg border-l-figma-green border-l-4">
@@ -235,6 +235,11 @@ const setChartOptions = () => {
         width: 5px;
         border-radius: 100px;
         margin-right: 16px;
+}
+
+.see-details:hover path,
+.view-all:hover path {
+    fill: var(--color-figma-grey-900);
 }
 
 </style>
