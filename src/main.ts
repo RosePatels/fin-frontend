@@ -8,11 +8,34 @@ import Aura from '@primeuix/themes/aura';
 
 import App from './App.vue'
 import router from './router'
+import { definePreset } from '@primeuix/themes';
 
 const app = createApp(App)
+
+const finPreset = definePreset(Aura, {
+    components: {
+        button: {
+            colorScheme: {
+                light: {
+                    root: {
+                        primary: {
+                            background: 'var(--color-figma-grey-900)',
+                            borderColor: 'var(--color-figma-grey-900)',
+                            hoverBackground: 'var(--color-figma-grey-500)',
+                            hoverBorderColor: 'var(--color-figma-grey-500)',
+                            activeBackground: 'var(--color-figma-grey-300)',
+                            activeBorderColor: 'var(--color-figma-grey-300)',
+                        }
+                    }
+                }
+            }
+        }
+    }
+})
+
 app.use(PrimeVue, {
     theme: {
-        preset: Aura
+        preset: finPreset
     }
 });
 
