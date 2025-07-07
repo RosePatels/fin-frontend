@@ -25,6 +25,13 @@ const finPreset = definePreset(Aura, {
                             hoverBorderColor: 'var(--color-figma-grey-500)',
                             activeBackground: 'var(--color-figma-grey-300)',
                             activeBorderColor: 'var(--color-figma-grey-300)',
+                        },
+                        secondary: {
+                            background: 'var(--color-figma-beige-100)',
+                            borderColor: 'var(--color-figma-beige-100)',
+                            hoverBackground: 'var(--color-figma-beige-200)',
+                            hoverBorderColor: 'var(--color-figma-beige-200)',
+                            activeBackground: 'var(--color-figma-beige-300)',                            activeBorderColor: 'var(--color-figma-beige-300)',
                         }
                     }
                 }
