@@ -6,7 +6,7 @@
     </header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-(--figma-spacing-300)">
-        <div class="gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg">
+        <div class="gap-(--figma-spacing-250) bg-white p-(--figma-spacing-400) rounded-lg max-h-max">
         <div class="w-full">
             <Chart type="doughnut" :data="chartData" :options="chartOptions" class="w-full" />
             <!-- <div class="text-center mt-(--figma-spacing-300) text-preset-4 text-figma-grey-500"><span class="text-preset-3 text-figma-grey-900">$338</span> of 975 limit</div> -->
@@ -63,185 +63,267 @@
         </div>
     </div>
 
-        <div>
-            <div>
-                <div>Circle</div>
-                <h4>Bills</h4>
-                <button>...</button>
-            </div>
+    <div>
+        <div class="bg-white md:col-start-2 rounded-lg p-(--figma-spacing-400) max-h-max mb-(--figma-spacing-300)">
+           <div class="flex items-center justify-between mb-(--figma-spacing-250)">
+               <div class="flex items-center">
+                   <div class="circle bg-figma-green"></div>
+                   <h4 class="text-preset-2 ml-(--figma-spacing-100)">Entertainment</h4>
+               </div>
+               <!-- <button>...</button> -->
+           </div>
 
-            <div>Maximum of $750.00</div>
+           <div class="text-preset-4 text-figma-grey-500 mb-(--figma-spacing-200)">Maximum of $50.00</div>
 
-            <div>Progress Bar</div>
+           <ProgressBar :value="50" :showValue="false" :dt="entertainmentProgressBarDt"></ProgressBar>
 
-            <div>
-                <div>
-                    <div>Line</div>
-                    <div>
-                        <div>Spent</div>
-                        <div>$250</div>
-                    </div>
-                </div>
-                <div>
-                    <div>Line</div>
-                    <div>
-                        <div>Free</div>
-                        <div>$750</div>
-                    </div>
-                </div>
-            </div>
+           <div class="mt-(--figma-spacing-200) grid grid-cols-2">
+               <div class="flex flex-row">
+                   <div class="large-line bg-figma-green"></div>
+                   <div class="flex flex-col">
+                       <div class="text-preset-5 text-figma-grey-500">Spent</div>
+                       <div class="text-preset-4-bold text-figma-grey-900">$15</div>
+                   </div>
+               </div>
+               <div class="flex flex-row">
+                   <div class="large-line bg-figma-beige-100"></div>
+                   <div class="flex flex-col">
+                       <div class="text-preset-5 text-figma-grey-500">Remaining</div>
+                       <div class="text-preset-4-bold text-figma-grey-900">$35</div>
+                   </div>
+               </div>
+           </div>
 
-            <div>
-                <div>
-                    <h5>Latest Spending</h5>
-                    <div>See All</div>
-                </div>
+           <div class="p-(--figma-spacing-250) mt-(--figma-spacing-250) bg-figma-beige-100 rounded-lg">
+               <div class="flex items-center justify-between pb-(--figma-spacing-250)">
+                    <div class="text-preset-3 text-figma-grey-900">Latest Spending</div>
+                   <router-link :to="{ name: 'budgets' }" class="text-preset-4 text-figma-grey-500 flex items-center hover:text-figma-grey-900 cursor-pointer see-details">
+                       See Details
+                       <svg class="ml-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="6" height="11" fill="none"><path fill="#696868" d="m.854.146 5 5a.5.5 0 0 1 0 .708l-5 5A.5.5 0 0 1 0 10.5V.5A.5.5 0 0 1 .854.146z"/></svg>
+                   </router-link>
+               </div>
 
-                <div>
-                    <div>Charlie Electric Company</div>
-                    <div>
-                        <div>-$100.00</div>
-                        <div>1 Aug 2024</div>
-                    </div>
-                </div>
+               <div class="flex justify-between items-center pb-(--figma-spacing-150) border-b border-figma-grey-500/15">
+                   <div class="text-preset-5-bold text-figma-grey-900">Charlie Electric Company</div>
+                   <div class="text-right">
+                       <div class="text-preset-5-bold text-figma-grey-900">-$100.00</div>
+                       <div class="text-preset-5 text-figma-grey-500">1 Aug 2024</div>
+                   </div>
+               </div>
 
-                <div>
-                    <div>Foxtrot Waterline</div>
-                    <div>
-                        <div>-$100.00</div>
-                        <div>1 Aug 2024</div>
-                    </div>
-                </div>
+                <div class="flex justify-between items-center py-(--figma-spacing-150) border-b border-figma-grey-500/15">
+                   <div class="text-preset-5-bold text-figma-grey-900">Foxtrot Waterline</div>
+                   <div class="text-right">
+                       <div class="text-preset-5-bold text-figma-grey-900">-$100.00</div>
+                       <div class="text-preset-5 text-figma-grey-500">1 Aug 2024</div>
+                   </div>
+               </div>
 
-                <div>
-                    <div>Tango Gas Company</div>
-                    <div>
-                        <div>-$50.00</div>
-                        <div>1 Aug 2024</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <div class="flex justify-between items-center pt-(--figma-spacing-150)">
+                   <div class="text-preset-5-bold text-figma-grey-900">Tango Gas Company</div>
+                   <div class="text-right">
+                       <div class="text-preset-5-bold text-figma-grey-900">-$100.00</div>
+                       <div class="text-preset-5 text-figma-grey-500">1 Aug 2024</div>
+                   </div>
+               </div>
+           </div>
+       </div>
 
-        <div>
-            <div>
-                <div>Circle</div>
-                <h4>Dining Out</h4>
-                <button>...</button>
-            </div>
+       <div class="bg-white md:col-start-2 rounded-lg p-(--figma-spacing-400) max-h-max mb-(--figma-spacing-300)">
+           <div class="flex items-center justify-between mb-(--figma-spacing-250)">
+               <div class="flex items-center">
+                   <div class="circle bg-figma-cyan"></div>
+                   <h4 class="text-preset-2 ml-(--figma-spacing-100)">Bills</h4>
+               </div>
+               <!-- <button>...</button> -->
+           </div>
 
-            <div>Maximum of $75.00</div>
+           <div class="text-preset-4 text-figma-grey-500 mb-(--figma-spacing-200)">Maximum of $750.00</div>
 
-            <div>Progress Bar</div>
+           <ProgressBar :value="50" :showValue="false" :dt="billsProgressBarDt"></ProgressBar>
 
-            <div>
-                <div>
-                    <div>Line</div>
-                    <div>
-                        <div>Spent</div>
-                        <div>$67</div>
-                    </div>
-                </div>
-                <div>
-                    <div>Line</div>
-                    <div>
-                        <div>Free</div>
-                        <div>$8</div>
-                    </div>
-                </div>
-            </div>
+           <div class="mt-(--figma-spacing-200) grid grid-cols-2">
+               <div class="flex flex-row">
+                   <div class="large-line bg-figma-cyan"></div>
+                   <div class="flex flex-col">
+                       <div class="text-preset-5 text-figma-grey-500">Spent</div>
+                       <div class="text-preset-4-bold text-figma-grey-900">$250</div>
+                   </div>
+               </div>
+               <div class="flex flex-row">
+                   <div class="large-line bg-figma-beige-100"></div>
+                   <div class="flex flex-col">
+                       <div class="text-preset-5 text-figma-grey-500">Remaining</div>
+                       <div class="text-preset-4-bold text-figma-grey-900">$750</div>
+                   </div>
+               </div>
+           </div>
 
-            <div>
-                <div>
-                    <h5>Latest Spending</h5>
-                    <div>See All</div>
-                </div>
+           <div class="p-(--figma-spacing-250) mt-(--figma-spacing-250) bg-figma-beige-100 rounded-lg">
+               <div class="flex items-center justify-between pb-(--figma-spacing-250)">
+                    <div class="text-preset-3 text-figma-grey-900">Latest Spending</div>
+                   <router-link :to="{ name: 'budgets' }" class="text-preset-4 text-figma-grey-500 flex items-center hover:text-figma-grey-900 cursor-pointer see-details">
+                       See Details
+                       <svg class="ml-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="6" height="11" fill="none"><path fill="#696868" d="m.854.146 5 5a.5.5 0 0 1 0 .708l-5 5A.5.5 0 0 1 0 10.5V.5A.5.5 0 0 1 .854.146z"/></svg>
+                   </router-link>
+               </div>
 
-                <div>
-                    <div>Lima Dining House</div>
-                    <div>
-                        <div>-$30.00</div>
-                        <div>21 Aug 2024</div>
-                    </div>
-                </div>
+               <div class="flex justify-between items-center pb-(--figma-spacing-150) border-b border-figma-grey-500/15">
+                   <div class="text-preset-5-bold text-figma-grey-900">Charlie Electric Company</div>
+                   <div class="text-right">
+                       <div class="text-preset-5-bold text-figma-grey-900">-$100.00</div>
+                       <div class="text-preset-5 text-figma-grey-500">1 Aug 2024</div>
+                   </div>
+               </div>
 
-                <div>
-                    <div>Yuna Kim</div>
-                    <div>
-                        <div>-$21.50</div>
-                        <div>20 Aug 2024</div>
-                    </div>
-                </div>
+                <div class="flex justify-between items-center py-(--figma-spacing-150) border-b border-figma-grey-500/15">
+                   <div class="text-preset-5-bold text-figma-grey-900">Foxtrot Waterline</div>
+                   <div class="text-right">
+                       <div class="text-preset-5-bold text-figma-grey-900">-$100.00</div>
+                       <div class="text-preset-5 text-figma-grey-500">1 Aug 2024</div>
+                   </div>
+               </div>
 
-                <div>
-                    <div>Juliet Restaurant</div>
-                    <div>
-                        <div>-$15.50</div>
-                        <div>12 Aug 2024</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <div class="flex justify-between items-center pt-(--figma-spacing-150)">
+                   <div class="text-preset-5-bold text-figma-grey-900">Tango Gas Company</div>
+                   <div class="text-right">
+                       <div class="text-preset-5-bold text-figma-grey-900">-$100.00</div>
+                       <div class="text-preset-5 text-figma-grey-500">1 Aug 2024</div>
+                   </div>
+               </div>
+           </div>
+       </div>
 
-        <div>
-            <div>
-                <div>Circle</div>
-                <h4>Personal Care</h4>
-                <button>...</button>
-            </div>
+        <div class="bg-white md:col-start-2 rounded-lg p-(--figma-spacing-400) max-h-max mb-(--figma-spacing-300)">
+           <div class="flex items-center justify-between mb-(--figma-spacing-250)">
+               <div class="flex items-center">
+                   <div class="circle bg-figma-yellow"></div>
+                   <h4 class="text-preset-2 ml-(--figma-spacing-100)">Dining Out</h4>
+               </div>
+               <!-- <button>...</button> -->
+           </div>
 
-            <div>Maximum of $100.00</div>
+           <div class="text-preset-4 text-figma-grey-500 mb-(--figma-spacing-200)">Maximum of $75.00</div>
 
-            <div>Progress Bar</div>
+           <ProgressBar :value="50" :showValue="false" :dt="diningOutProgressBarDt"></ProgressBar>
 
-            <div>
-                <div>
-                    <div>Line</div>
-                    <div>
-                        <div>Spent</div>
-                        <div>$250</div>
-                    </div>
-                </div>
-                <div>
-                    <div>Line</div>
-                    <div>
-                        <div>Free</div>
-                        <div>$750</div>
-                    </div>
-                </div>
-            </div>
+           <div class="mt-(--figma-spacing-200) grid grid-cols-2">
+               <div class="flex flex-row">
+                   <div class="large-line bg-figma-yellow"></div>
+                   <div class="flex flex-col">
+                       <div class="text-preset-5 text-figma-grey-500">Spent</div>
+                       <div class="text-preset-4-bold text-figma-grey-900">$133.75</div>
+                   </div>
+               </div>
+               <div class="flex flex-row">
+                   <div class="large-line bg-figma-beige-100"></div>
+                   <div class="flex flex-col">
+                       <div class="text-preset-5 text-figma-grey-500">Remaining</div>
+                       <div class="text-preset-4-bold text-figma-grey-900">$0</div>
+                   </div>
+               </div>
+           </div>
 
-            <div>
-                <div>
-                    <h5>Latest Spending</h5>
-                    <div>See All</div>
-                </div>
+           <div class="p-(--figma-spacing-250) mt-(--figma-spacing-250) bg-figma-beige-100 rounded-lg">
+               <div class="flex items-center justify-between pb-(--figma-spacing-250)">
+                    <div class="text-preset-3 text-figma-grey-900">Latest Spending</div>
+                   <router-link :to="{ name: 'budgets' }" class="text-preset-4 text-figma-grey-500 flex items-center hover:text-figma-grey-900 cursor-pointer see-details">
+                       See Details
+                       <svg class="ml-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="6" height="11" fill="none"><path fill="#696868" d="m.854.146 5 5a.5.5 0 0 1 0 .708l-5 5A.5.5 0 0 1 0 10.5V.5A.5.5 0 0 1 .854.146z"/></svg>
+                   </router-link>
+               </div>
 
-                <div>
-                    <div>Charlie Electric Company</div>
-                    <div>
-                        <div>-$100.00</div>
-                        <div>1 Aug 2024</div>
-                    </div>
-                </div>
+               <div class="flex justify-between items-center pb-(--figma-spacing-150) border-b border-figma-grey-500/15">
+                   <div class="text-preset-5-bold text-figma-grey-900">Charlie Electric Company</div>
+                   <div class="text-right">
+                       <div class="text-preset-5-bold text-figma-grey-900">-$100.00</div>
+                       <div class="text-preset-5 text-figma-grey-500">1 Aug 2024</div>
+                   </div>
+               </div>
 
-                <div>
-                    <div>Foxtrot Waterline</div>
-                    <div>
-                        <div>-$100.00</div>
-                        <div>1 Aug 2024</div>
-                    </div>
-                </div>
+                <div class="flex justify-between items-center py-(--figma-spacing-150) border-b border-figma-grey-500/15">
+                   <div class="text-preset-5-bold text-figma-grey-900">Foxtrot Waterline</div>
+                   <div class="text-right">
+                       <div class="text-preset-5-bold text-figma-grey-900">-$100.00</div>
+                       <div class="text-preset-5 text-figma-grey-500">1 Aug 2024</div>
+                   </div>
+               </div>
 
-                <div>
-                    <div>Tango Gas Company</div>
-                    <div>
-                        <div>-$50.00</div>
-                        <div>1 Aug 2024</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                <div class="flex justify-between items-center pt-(--figma-spacing-150)">
+                   <div class="text-preset-5-bold text-figma-grey-900">Tango Gas Company</div>
+                   <div class="text-right">
+                       <div class="text-preset-5-bold text-figma-grey-900">-$100.00</div>
+                       <div class="text-preset-5 text-figma-grey-500">1 Aug 2024</div>
+                   </div>
+               </div>
+           </div>
+       </div>
+
+        <div class="bg-white md:col-start-2 rounded-lg p-(--figma-spacing-400) max-h-max mb-(--figma-spacing-300)">
+           <div class="flex items-center justify-between mb-(--figma-spacing-250)">
+               <div class="flex items-center">
+                   <div class="circle bg-figma-navy"></div>
+                   <h4 class="text-preset-2 ml-(--figma-spacing-100)">Personal Care</h4>
+               </div>
+               <!-- <button>...</button> -->
+           </div>
+
+           <div class="text-preset-4 text-figma-grey-500 mb-(--figma-spacing-200)">Maximum of $100.00</div>
+
+           <ProgressBar :value="50" :showValue="false" :dt="personalCareProgressBarDt"></ProgressBar>
+
+           <div class="mt-(--figma-spacing-200) grid grid-cols-2">
+               <div class="flex flex-row">
+                   <div class="large-line bg-figma-navy"></div>
+                   <div class="flex flex-col">
+                       <div class="text-preset-5 text-figma-grey-500">Spent</div>
+                       <div class="text-preset-4-bold text-figma-grey-900">$40</div>
+                   </div>
+               </div>
+               <div class="flex flex-row">
+                   <div class="large-line bg-figma-beige-100"></div>
+                   <div class="flex flex-col">
+                       <div class="text-preset-5 text-figma-grey-500">Remaining</div>
+                       <div class="text-preset-4-bold text-figma-grey-900">$60</div>
+                   </div>
+               </div>
+           </div>
+
+           <div class="p-(--figma-spacing-250) mt-(--figma-spacing-250) bg-figma-beige-100 rounded-lg">
+               <div class="flex items-center justify-between pb-(--figma-spacing-250)">
+                    <div class="text-preset-3 text-figma-grey-900">Latest Spending</div>
+                   <router-link :to="{ name: 'budgets' }" class="text-preset-4 text-figma-grey-500 flex items-center hover:text-figma-grey-900 cursor-pointer see-details">
+                       See Details
+                       <svg class="ml-(--figma-spacing-200)" xmlns="http://www.w3.org/2000/svg" width="6" height="11" fill="none"><path fill="#696868" d="m.854.146 5 5a.5.5 0 0 1 0 .708l-5 5A.5.5 0 0 1 0 10.5V.5A.5.5 0 0 1 .854.146z"/></svg>
+                   </router-link>
+               </div>
+
+               <div class="flex justify-between items-center pb-(--figma-spacing-150) border-b border-figma-grey-500/15">
+                   <div class="text-preset-5-bold text-figma-grey-900">Charlie Electric Company</div>
+                   <div class="text-right">
+                       <div class="text-preset-5-bold text-figma-grey-900">-$100.00</div>
+                       <div class="text-preset-5 text-figma-grey-500">1 Aug 2024</div>
+                   </div>
+               </div>
+
+                <div class="flex justify-between items-center py-(--figma-spacing-150) border-b border-figma-grey-500/15">
+                   <div class="text-preset-5-bold text-figma-grey-900">Foxtrot Waterline</div>
+                   <div class="text-right">
+                       <div class="text-preset-5-bold text-figma-grey-900">-$100.00</div>
+                       <div class="text-preset-5 text-figma-grey-500">1 Aug 2024</div>
+                   </div>
+               </div>
+
+                <div class="flex justify-between items-center pt-(--figma-spacing-150)">
+                   <div class="text-preset-5-bold text-figma-grey-900">Tango Gas Company</div>
+                   <div class="text-right">
+                       <div class="text-preset-5-bold text-figma-grey-900">-$100.00</div>
+                       <div class="text-preset-5 text-figma-grey-500">1 Aug 2024</div>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </div>
     </div>
 </div>
 </template>
@@ -250,7 +332,7 @@
 import { ref, onMounted } from 'vue';
 import PageTitle from '@/components/PageTitle.vue';
 import MobileFooter from '../Navigation/MobileFooter.vue';
-import { Button } from 'primevue';
+import { Button, ProgressBar } from 'primevue';
 import Chart from 'primevue/chart';
 
 const chartData = ref();
@@ -292,6 +374,34 @@ const setChartOptions = () => {
         }
     };
 };
+
+const entertainmentProgressBarDt = ref({
+        background: 'var(--color-figma-beige-100)',
+        value: {
+            background: 'var(--color-figma-green)',
+        }
+});
+
+const billsProgressBarDt = ref({
+        background: 'var(--color-figma-beige-100)',
+        value: {
+            background: 'var(--color-figma-cyan)',
+        }
+});
+
+const diningOutProgressBarDt = ref({
+        background: 'var(--color-figma-beige-100)',
+        value: {
+            background: 'var(--color-figma-yellow)',
+        }
+});
+
+const personalCareProgressBarDt = ref({
+        background: 'var(--color-figma-beige-100)',
+        value: {
+            background: 'var(--color-figma-navy)',
+        }
+});
 </script>
 
 
@@ -301,5 +411,18 @@ const setChartOptions = () => {
         width: 4px;
         border-radius: 100px;
         margin-right: 16px;
+}
+
+.large-line {
+     height: 40px;
+        width: 4px;
+        border-radius: 100px;
+        margin-right: 16px;
+}
+
+.circle {
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
 }
 </style>
