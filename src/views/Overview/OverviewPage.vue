@@ -167,7 +167,7 @@
 </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import PageTitle from '@/components/PageTitle.vue';
 import { DataTable, Column } from 'primevue';
@@ -182,7 +182,7 @@ const transactions = ref([
     { id: 5, name: 'Urban Services Hub', amount: -65, date: '17 Aug 2024' }
 ]);
 
-const getFormattedAmount = (amount) => {
+const getFormattedAmount = (amount: any) => {
     return amount > 0 ? `+$${amount.toFixed(2)}` : `-$${Math.abs(amount).toFixed(2)}`;
 };
 
@@ -192,7 +192,7 @@ onMounted(() => {
 });
 
 const chartData = ref();
-const chartOptions = ref(null);
+const chartOptions = ref<any>(null);
 
 const setChartData = () => {
     const documentStyle = getComputedStyle(document.body);
@@ -208,7 +208,7 @@ const setChartData = () => {
     };
 };
 
-const handleResize = (chart) => {
+const handleResize = (chart: any) => {
 chart.resize();
 }
 

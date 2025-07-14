@@ -336,7 +336,7 @@ import { Button, ProgressBar } from 'primevue';
 import Chart from 'primevue/chart';
 
 const chartData = ref();
-const chartOptions = ref(null);
+const chartOptions = ref<any>(null);
 
 onMounted(() => {
     chartData.value = setChartData();
@@ -357,7 +357,7 @@ const setChartData = () => {
     };
 };
 
-const handleResize = (chart) => {
+const handleResize = (chart: any) => {
 chart.resize();
 }
 

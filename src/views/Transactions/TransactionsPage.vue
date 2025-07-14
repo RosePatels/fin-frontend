@@ -53,7 +53,7 @@ const transactions = ref([
     { id: 5, name: 'Urban Services Hub', category: 'General', amount: -65, date: '17 Aug 2024' }
 ]);
 
-const getFormattedAmount = (amount) => {
+const getFormattedAmount = (amount: any) => {
     return amount > 0 ? `+$${amount.toFixed(2)}` : `-$${Math.abs(amount).toFixed(2)}`;
 };
 

@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import OverviewPage from '@/views/Overview/OverviewPage.vue'
+import OverviewPage from '@/views/Overview/OverviewPage.vue';
 import TransactionsPage from '@/views/Transactions/TransactionsPage.vue'
 import BudgetsPage from '@/views/Budgets/BudgetsPage.vue'
 import PotsPage from '@/views/Pots/PotsPage.vue'
