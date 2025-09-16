@@ -2,7 +2,7 @@
 <div class="bg-figma-beige-100 px-(--figma-spacing-200) py-(--figma-spacing-300) sm:px-(--figma-spacing-400) sm:py-(--figma-spacing-500)">
    <header class="flex justify-between items-center mb-(--figma-spacing-400)">
         <PageTitle title="Pots" />
-        <Button severity=""><div class="text-preset-5">+ Add New Pot</div></Button>
+        <Button severity=""><div class="text-preset-5" @click="showAddPotsDialog">+ Add New Pot</div></Button>
     </header>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-(--figma-spacing-300)">
@@ -168,6 +168,21 @@
                 </div>
         </div> -->
     </div>
+    <Dialog v-model:visible="addPotsDialogVisible" modal header="Add New Pot" :style="{ width: '25rem' }">
+        <span class="text-figma-grey-500 text-preset-4 block mb-8">Create a pot to set savings targets. These can help keep you on track as you save for special purchases.</span>
+        <div class="flex items-center gap-4 mb-4">
+            <label for="username" class="font-semibold w-30">Pot Name</label>
+            <InputText v-model="potData.potName" class="flex-auto" autocomplete="off"  fluid />
+        </div>
+        <div class="flex items-center gap-4 mb-8">
+            <label for="email" class="font-semibold w-30">Target</label>
+            <InputNumber v-model="potData.targetAmount" mode="currency" currency="USD" local="en-US" fluid autocomplete="off" />
+        </div>
+        <div class="flex justify-end gap-2">
+            <Button type="button" label="Save" @click="addPot"></Button>
+            <Button type="button" label="Cancel" severity="secondary" @click="hidePotsDialog"></Button>
+        </div>
+    </Dialog>
 </div>
 </template>
 
@@ -175,8 +190,23 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import PageTitle from '@/components/PageTitle.vue';
-import { Button, ProgressBar } from 'primevue';
-import { getPots } from '@/services/PotsService';
+import { Button, ProgressBar, Dialog, InputText, InputNumber } from 'primevue';
+import { getPots, createPot } from '@/services/PotsService';
+import { create } from 'domain';
+const addPotsDialogVisible = ref(false);
+
+const showAddPotsDialog = () => {
+    addPotsDialogVisible.value = true;
+};
+
+const hidePotsDialog = () => {
+    addPotsDialogVisible.value = false;
+    potData.value = {
+        potName: '',
+        totalSaved: 0,
+        targetAmount: 0
+    };
+};
 
 const savingsProgressBarDt = ref({
         height: '8px',
@@ -219,6 +249,27 @@ const holidayProgressBarDt = ref({
 });
 
 const pots = ref([]);
+const potData = ref({
+    potName: '',
+    totalSaved: 0,
+    targetAmount: 0
+});
+
+const addPot = async () => {
+    const newPot = {
+        potName: potData.value.potName,
+        totalSaved: 0,
+        targetAmount: potData.value.targetAmount
+    };
+    
+    try {
+        const response = await createPot(newPot);
+        pots.value.push(response.data);
+        hidePotsDialog();
+    } catch (error) {
+        console.error('Error creating pot:', error);
+    }
+};
 
 onMounted(async () => {
     try {
