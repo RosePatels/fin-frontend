@@ -352,7 +352,7 @@ import { listBudgets, createBudget } from '@/services/BudgetsService';
 const chartData = ref();
 const chartOptions = ref<any>(null);
 
-const budgets = ref([]);
+const budgets = ref<any>([]);
 
 onMounted(async () => {
     const response = await listBudgets();
@@ -400,8 +400,8 @@ const addBudget = async () => {
 
 const setChartData = () => {
     const documentStyle = getComputedStyle(document.body);
-    const labels = budgets.value.map(budget => budget.budgetName);
-    const data = budgets.value.map(budget => budget.budgetAmount);
+    const labels = budgets.value.map((budget: { budgetName: any; }) => budget.budgetName);
+    const data = budgets.value.map((budget: { budgetAmount: any; }) => budget.budgetAmount);
     return {
         labels: labels,
         datasets: [

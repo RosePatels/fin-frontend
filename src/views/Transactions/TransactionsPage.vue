@@ -77,7 +77,7 @@ import { DataTable, Column, Button, Dialog, InputNumber, InputText, DatePicker, 
 import PageTitle from '@/components/PageTitle.vue';
 import { listTransactions, createTransaction } from '@/services/TransactionsService';
 
-const transactions = ref([]);
+const transactions = ref<any>([]);
 
 const getFormattedAmount = (amount: any) => {
     return amount > 0 ? `+$${amount.toFixed(2)}` : `-$${Math.abs(amount).toFixed(2)}`;
@@ -90,7 +90,7 @@ onMounted(async () => {
 
 const addTransactionDialogVisible = ref(false);
 
-const transactionData = ref({
+const transactionData = ref<any>({
     transactionName: '',
     categoryType: 'Budgets',
     categoryId: 1,

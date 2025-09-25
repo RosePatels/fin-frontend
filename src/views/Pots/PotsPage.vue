@@ -192,7 +192,7 @@ import { ref, onMounted } from 'vue';
 import PageTitle from '@/components/PageTitle.vue';
 import { Button, ProgressBar, Dialog, InputText, InputNumber } from 'primevue';
 import { getPots, createPot } from '@/services/PotsService';
-import { create } from 'domain';
+
 const addPotsDialogVisible = ref(false);
 
 const showAddPotsDialog = () => {
@@ -248,8 +248,8 @@ const holidayProgressBarDt = ref({
         }
 });
 
-const pots = ref([]);
-const potData = ref({
+const pots = ref<any>([]);
+const potData = ref<any>({
     potName: '',
     totalSaved: 0,
     targetAmount: 0
